@@ -1,17 +1,27 @@
+import java.util.Scanner;
+
 public class Desafio7 {
 
     public static void main(String[] args) {
-        int primeiro = 0;
-        int segundo = 1;
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Os 10 primeiros elementos da Sequência de Fibonacci são:");
+        System.out.print("Digite o primeiro termo da PA: ");
+        int primeiro = scanner.nextInt();
 
+        System.out.print("Digite a razão da PA: ");
+        int razao = scanner.nextInt();
+
+        int soma = 0;
+
+        System.out.println("Os 10 primeiros elementos da PA são:");
         for (int i = 0; i < 10; i++) {
-            System.out.print(primeiro + " ");
-
-            int proximo = primeiro + segundo;
-            primeiro = segundo;
-            segundo = proximo;
+            int termo = primeiro+ i * razao;
+            System.out.print(termo + " ");
+            soma += termo;
         }
+
+        System.out.println("\nA soma dos elementos da PA é: " + soma);
+
+        scanner.close();
     }
 }

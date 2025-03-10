@@ -1,23 +1,26 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class Desafio9 {
 
     public static void main(String[] args) {
-        Fibonacci(5);
-        Fibonacci(9);
-    }
+        int[] vetor = new int[20];
+        Random random = new Random();
 
-    public static void Fibonacci(int quantidadeTermos) {
-        int primeiro = 0;
-        int segundo = 1;
-
-        System.out.print("1 >> "); // Imprime o primeiro termo (1)
-
-        for (int i = 1; i < quantidadeTermos; i++) {
-            int proximo = primeiro + segundo;
-            System.out.print(proximo + " >> ");
-            primeiro = segundo;
-            segundo = proximo;
+        // Preenche o vetor com números aleatórios entre 0 e 99
+        for (int i = 0; i < vetor.length; i++) {
+            vetor[i] = random.nextInt(100);
         }
 
-        System.out.println("FIM");
+        // Exibe os números gerados
+        System.out.println("Números gerados:");
+        System.out.println(Arrays.toString(vetor));
+
+        // Ordena o vetor em ordem crescente
+        Arrays.sort(vetor);
+
+        // Exibe os números ordenados
+        System.out.println("\nNúmeros ordenados:");
+        System.out.println(Arrays.toString(vetor));
     }
 }

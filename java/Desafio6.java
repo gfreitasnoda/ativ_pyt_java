@@ -1,26 +1,37 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Desafio6 {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-        System.out.print("Digite o primeiro termo da PA: ");
-        int primeiro = scanner.nextInt();
+        int numero = random.nextInt(10) + 1; // Gera um número aleatório entre 1 e 10
+        int tentativas = 0;
+        int palpite;
+        int maxTentativas = 4;
 
-        System.out.print("Digite a razão da PA: ");
-        int razao = scanner.nextInt();
+        System.out.println("Adivinhe o número que estou pensando (entre 1 e 10).");
+        System.out.println("Você tem " + maxTentativas + " tentativas.");
 
-        int soma = 0;
+        while (tentativas < maxTentativas) {
+            System.out.print("Seu palpite: ");
+            palpite = scanner.nextInt();
+            tentativas++;
 
-        System.out.println("Os 10 primeiros elementos da PA são:");
-        for (int i = 0; i < 10; i++) {
-            int termo = primeiro+ i * razao;
-            System.out.print(termo + " ");
-            soma += termo;
+            if (palpite == numero) {
+                System.out.println("Parabéns! Você acertou em " + tentativas + " tentativas.");
+                break; // Sai do loop quando o jogador acerta
+            } else if (palpite < numero) {
+                System.out.println("Muito baixo. Tente novamente.");
+            } else {
+                System.out.println("Muito alto. Tente novamente.");
+            }
+
+            if (tentativas == maxTentativas) {
+                System.out.println("Você não conseguiu adivinhar o número. O número correto era: " + numero);
+            }
         }
-
-        System.out.println("\nA soma dos elementos da PA é: " + soma);
 
         scanner.close();
     }

@@ -1,26 +1,17 @@
-import java.util.Arrays;
-import java.util.Random;
-
 public class Desafio8 {
 
     public static void main(String[] args) {
-        int[] vetor = new int[20];
-        Random random = new Random();
+        int primeiro = 0;
+        int segundo = 1;
 
-        // Preenche o vetor com números aleatórios entre 0 e 99
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = random.nextInt(100);
+        System.out.println("Os 10 primeiros elementos da Sequência de Fibonacci são:");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print(primeiro + " ");
+
+            int proximo = primeiro + segundo;
+            primeiro = segundo;
+            segundo = proximo;
         }
-
-        // Exibe os números gerados
-        System.out.println("Números gerados:");
-        System.out.println(Arrays.toString(vetor));
-
-        // Ordena o vetor em ordem crescente
-        Arrays.sort(vetor);
-
-        // Exibe os números ordenados
-        System.out.println("\nNúmeros ordenados:");
-        System.out.println(Arrays.toString(vetor));
     }
 }
